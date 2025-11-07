@@ -41,3 +41,14 @@ Di Tugas ini kita menggunakan sebagai di methode Widget build. Seperti Mengakses
 Hot Reload Bekerja dengan Mengimplementasikan perubahan source code ke Dart VM, membuat ulang struktur Widgets Tree
 dan mempertahankan state aplikasi. Berbeda dengan Hot Restart yang mengimplementasikan perubahan dalam source code
 dengan merestart ulang aplikasi flutter sehingga tidak mempertahankan state aplikasi.
+
+## Tugas 8
+### Jelaskan perbedaan antara Navigator.push() dan Navigator.pushReplacement() pada Flutter. Dalam kasus apa sebaiknya masing-masing digunakan pada aplikasi Football Shop kamu?
+
+### Bagaimana kamu memanfaatkan hierarchy widget seperti Scaffold, AppBar, dan Drawer untuk membangun struktur halaman yang konsisten di seluruh aplikasi?
+
+### Dalam konteks desain antarmuka, apa kelebihan menggunakan layout widget seperti Padding, SingleChildScrollView, dan ListView saat menampilkan elemen-elemen form? Berikan contoh penggunaannya dari aplikasi kamu.
+
+### Bagaimana kamu menyesuaikan warna tema agar aplikasi Football Shop memiliki identitas visual yang konsisten dengan brand toko?
+Pada berkas main.dart kita mengatur MaterialApp kita dapat mengatur tema aplikasi kita. Kita selalu membuild widget dengan
+BuildContext yang dimana konteksnya itu MaterialApp kita sehingga kita dapat mengakses skema tema kita dengan Theme.of(context)

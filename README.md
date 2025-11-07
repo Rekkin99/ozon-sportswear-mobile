@@ -34,7 +34,7 @@ BuildContext merepresentasikan suatu posisi/lokasi di Widget Tree.
 BuildContext penting karena
 - Dapat mengakses inherited widgets seperti Theme, MediaQuery, Provider
 - Trigger Navigation
-- Memperlihatkan UI overlay seperti Snackbar
+- Memperlihatkan UI overlay seperti Snackbar 
 Di Tugas ini kita menggunakan sebagai di methode Widget build. Seperti Mengakses Tema dari MaterialApp
 
 ### Jelaskan konsep "hot reload" di Flutter dan bagaimana bedanya dengan "hot restart".

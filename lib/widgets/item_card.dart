@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ozon_sportwears/screens/product_form.dart';
 
 // Item Home Page
 class ItemHomePage {
@@ -32,6 +33,18 @@ class ItemCard extends StatelessWidget{
             ..showSnackBar(
                 SnackBar(content: Text("Kamu telah menekan tombol ${item.name}!"),)
             );
+
+          if (item.name == "Create Product") {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ProductFormPage(),
+                ));
+          } else if (item.name == "All Products"){
+
+          } else if (item.name == "My Products"){
+
+          }
         },
 
         // Container untuk menyimpan Text dan Icon

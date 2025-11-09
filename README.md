@@ -34,10 +34,29 @@ BuildContext merepresentasikan suatu posisi/lokasi di Widget Tree.
 BuildContext penting karena
 - Dapat mengakses inherited widgets seperti Theme, MediaQuery, Provider
 - Trigger Navigation
-- Memperlihatkan UI overlay seperti Snackbar  
+- Memperlihatkan UI overlay seperti Snackbar
 Di Tugas ini kita menggunakan sebagai di methode Widget build. Seperti Mengakses Tema dari MaterialApp
 
 ### Jelaskan konsep "hot reload" di Flutter dan bagaimana bedanya dengan "hot restart".
 Hot Reload Bekerja dengan Mengimplementasikan perubahan source code ke Dart VM, membuat ulang struktur Widgets Tree
 dan mempertahankan state aplikasi. Berbeda dengan Hot Restart yang mengimplementasikan perubahan dalam source code
 dengan merestart ulang aplikasi flutter sehingga tidak mempertahankan state aplikasi.
+
+## Tugas 8
+
+### Jelaskan perbedaan antara Navigator.push() dan Navigator.pushReplacement() pada Flutter. Dalam kasus apa sebaiknya masing-masing digunakan pada aplikasi Football Shop kamu?
+Navigator akan menampilkan page yang berada di atas stack routenya. Navigator.push() hanya mempush suatu page ke top stacknya. 
+Sementara itu, Navigator.pushReplacement() akan mem-pop top stacknya dan mempush route yang baru sehingga kita tidak dapat back ke laman sebelumnya. 
+Kasus push replacement dipakai ketika kita tidak ingin user dapat memback ke laman sebelumnya
+
+### Bagaimana kamu memanfaatkan hierarchy widget seperti Scaffold, AppBar, dan Drawer untuk membangun struktur halaman yang konsisten di seluruh aplikasi?
+Saya menggunakan container untuk struktur pagenya yang berisi decoration yang mengatur background color dan Scaffold untuk struktur page aplikasinya. 
+Scaffold berisi AppBar, endDrawer, dan body. AppBar merupakan bar yang selalu ada di atas page, saya pakai untuk menandakan untuk page apa. EndDrawer sama 
+seperti drawer yakni untuk navigasi dari sidebar. Hanya endDrawer memunculkan barnya dari kanan. Sementara body itu isi laman page yang dikunjungi
+
+### Dalam konteks desain antarmuka, apa kelebihan menggunakan layout widget seperti Padding, SingleChildScrollView, dan ListView saat menampilkan elemen-elemen form? Berikan contoh penggunaannya dari aplikasi kamu.
+
+### Bagaimana kamu menyesuaikan warna tema agar aplikasi Football Shop memiliki identitas visual yang konsisten dengan brand toko?
+Dalam main.dart Root Widget Aplikasi merupakan MaterialApp. Dengan MaterialApp kita dapat menentukan skema tema aplikasi kita. Setiap
+build Widget kita menggunakan BuildContext yang menunjuk ke arah MaterialApp sehingga kita dapat mengambil tema dari MaterialApp kita 
+menggunakan Theme.of(context)

@@ -11,17 +11,17 @@ class ProductFormPage extends StatefulWidget {
 class _ProductFormPageState extends State<ProductFormPage> {
   final _formKey = GlobalKey<FormState>();
   String _title = "";
+  int _price = 0;
   String _content = "";
-  String _category = "update"; // default
+  String _category = "footwear"; // default
   String _thumbnail = "";
   bool _isFeatured = false; // default
   final List<String> _categories = [
-    'transfer',
-    'update',
-    'exclusive',
-    'match',
-    'rumor',
-    'analysis',
+    'footwear',
+    'jersey',
+    'ball',
+    'bottle',
+    'accessory',
   ];
 
   @override
@@ -41,6 +41,7 @@ class _ProductFormPageState extends State<ProductFormPage> {
           title: const Center(
             child: Text(
               'Form Add Product',
+              style: TextStyle(fontWeight: FontWeight.bold),
             ),
           ),
           backgroundColor: Theme.of(context).colorScheme.primary,
@@ -77,14 +78,43 @@ class _ProductFormPageState extends State<ProductFormPage> {
                     },
                   ),
                 ),
+                // === Price ===
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      hintText: "Product Price",
+                      labelText: "Product Price",
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                    ),
+                    onChanged: (String? value) {
+                      setState(() {
+                        _price = int.tryParse(value ?? '') ?? 0;
+                      });
+                    },
+                    validator: (String? value) {
+                      if (value == null || value.isEmpty) {
+                        return "Product price must be filled!";
+                      }
+                      final parsed = int.tryParse(value);
+                      if (parsed == null || parsed <= 0) {
+                        return "Product price is not valid!";
+                      }
+                      return null;
+                    },
+                  ),
+                ),
+
                 // === Content ===
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
                     maxLines: 5,
                     decoration: InputDecoration(
-                      hintText: "Isi Berita",
-                      labelText: "Isi Berita",
+                      hintText: "Product Detail",
+                      labelText: "Product Detail",
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5.0),
                       ),
@@ -96,7 +126,7 @@ class _ProductFormPageState extends State<ProductFormPage> {
                     },
                     validator: (String? value) {
                       if (value == null || value.isEmpty) {
-                        return "Isi berita tidak boleh kosong!";
+                        return "Product detail must be filled!";
                       }
                       return null;
                     },
@@ -152,7 +182,7 @@ class _ProductFormPageState extends State<ProductFormPage> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: SwitchListTile(
-                    title: const Text("Tandai sebagai Berita Unggulan"),
+                    title: const Text("Featured Product"),
                     value: _isFeatured,
                     onChanged: (bool value) {
                       setState(() {
@@ -168,7 +198,7 @@ class _ProductFormPageState extends State<ProductFormPage> {
                     padding: const EdgeInsets.all(8.0),
                     child: ElevatedButton(
                       style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(Colors.indigo),
+                        backgroundColor: MaterialStateProperty.all(Colors.orange[500]),
                       ),
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
@@ -176,17 +206,18 @@ class _ProductFormPageState extends State<ProductFormPage> {
                             context: context,
                             builder: (context) {
                               return AlertDialog(
-                                title: const Text('Berita berhasil disimpan!'),
+                                title: const Text('Product is saved!'),
                                 content: SingleChildScrollView(
                                   child: Column(
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
-                                      Text('Judul: $_title'),
-                                      Text('Isi: $_content'),
-                                      Text('Kategori: $_category'),
+                                      Text('Name: $_title'),
+                                      Text('Price: $_price'),
+                                      Text('Desription: $_content'),
+                                      Text('Category: $_category'),
                                       Text('Thumbnail: $_thumbnail'),
                                       Text(
-                                          'Unggulan: ${_isFeatured ? "Ya" : "Tidak"}'
+                                          'Featured: ${_isFeatured ? "Yes" : "No"}'
                                       ),
                                     ],
                                   ),

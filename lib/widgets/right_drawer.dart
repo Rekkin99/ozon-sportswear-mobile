@@ -48,11 +48,11 @@ class RightDrawer extends StatelessWidget {
             iconColor: Colors.white,
             // Bagian redirection ke MyHomePage
             onTap: () {
-              Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => MyHomePage(),
-                  ));
+              // Empty The Stack and push the home page
+              Navigator.of(context).pushAndRemoveUntil(
+                MaterialPageRoute(builder: (context) => MyHomePage()),
+                    (Route<dynamic> route) => false,
+              );
             },
           ),
           ListTile(

@@ -55,6 +55,8 @@ Scaffold berisi AppBar, endDrawer, dan body. AppBar merupakan bar yang selalu ad
 seperti drawer yakni untuk navigasi dari sidebar. Hanya endDrawer memunculkan barnya dari kanan. Sementara body itu isi laman page yang dikunjungi
 
 ### Dalam konteks desain antarmuka, apa kelebihan menggunakan layout widget seperti Padding, SingleChildScrollView, dan ListView saat menampilkan elemen-elemen form? Berikan contoh penggunaannya dari aplikasi kamu.
+Memastikan tampilan dapat terlihat di screen HP. Contohnya ada di Form Page product. Saya menggunakan padding agar kolom isian tetap berada dalam tampilan. 
+SingleChildScrollView berguna agar konten childnya tidak overflow jadi bisa discroll. ListView saya pakai di sidebar drawer agar bisa lebih terstruktur rapi.
 
 ### Bagaimana kamu menyesuaikan warna tema agar aplikasi Football Shop memiliki identitas visual yang konsisten dengan brand toko?
 Dalam main.dart Root Widget Aplikasi merupakan MaterialApp. Dengan MaterialApp kita dapat menentukan skema tema aplikasi kita. Setiap

@@ -74,6 +74,9 @@ class _ProductFormPageState extends State<ProductFormPage> {
                       if (value == null || value.isEmpty) {
                         return "Product name must be filled!";
                       }
+                      if (value.length > 32){
+                        return "Product name is exceeding 32 characters";
+                      }
                       return null;
                     },
                   ),
@@ -127,6 +130,9 @@ class _ProductFormPageState extends State<ProductFormPage> {
                     validator: (String? value) {
                       if (value == null || value.isEmpty) {
                         return "Product detail must be filled!";
+                      }
+                      if (value.length > 128){
+                        return "Product name is exceeding 128 characters!";
                       }
                       return null;
                     },

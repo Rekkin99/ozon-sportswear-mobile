@@ -66,21 +66,29 @@ menggunakan Theme.of(context)
 ## Tugas 9
 
 ### Jelaskan mengapa kita perlu membuat model Dart saat mengambil/mengirim data JSON? Apa konsekuensinya jika langsung memetakan Map<String, dynamic> tanpa model (terkait validasi tipe, null-safety, maintainability)?
-
+Dengan Model, kita dapat memvalidasi apakah field tertentu memiliki tipe data yana benar, kita juga dapat membuat apakah suatu field itu wajib atau diperbolehkan kosong saat diisi 
+dan secara pribadi, dengan model penerapan kode saya lebih rapi dan mudah terbaca.
 
 ### Apa fungsi package http dan CookieRequest dalam tugas ini? Jelaskan perbedaan peran http vs CookieRequest.
-
+Http : package untuk dapat melakukan request seperti POST/GET ke server
+CookieRequest : Menyimpan sebuah state yang digunakan untuk fitur-fitur aplikasi. Hal yang disimpan seperti sesi akun siapa yang login
 
 ### Jelaskan mengapa instance CookieRequest perlu untuk dibagikan ke semua komponen di aplikasi Flutter.
-
+Setiap Page/Screen dapat mengakses data yang sama dari suatu session
 
 ### Jelaskan konfigurasi konektivitas yang diperlukan agar Flutter dapat berkomunikasi dengan Django. Mengapa kita perlu menambahkan 10.0.2.2 pada ALLOWED_HOSTS, mengaktifkan CORS dan pengaturan SameSite/cookie, dan menambahkan izin akses internet di Android? Apa yang akan terjadi jika konfigurasi tersebut tidak dilakukan dengan benar?
-
+10.0.2.2 Allowed Access Agar emulator android dapat mengakses web django
+CORS : Berfungsi agar aplikasi dari domain yang berbeda dapat mengakses API Django
+Samesite & Cookie Settings : Agar cookie session dapat dikirim lintas domain
+AndroidManifest Izin Internet : Agar Aplikasi Android dapat mengakses Internet
 
 ### Jelaskan mekanisme pengiriman data mulai dari input hingga dapat ditampilkan pada Flutter.
-
+Biasanya User akan mengisi form di applikasi flutter dan di flutter akan memvalidasi input sebelum dikirim, lalu data akan dikirimkan ke API Django 
+dan akan diproses sesuai back-end django lalu Django akan memberikan response. Berdasarkan response kita tampilkan front-endnya dari flutter
 
 ### Jelaskan mekanisme autentikasi dari login, register, hingga logout. Mulai dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter.
-
+Login, Register akan mengirim isi data yang kita ketik dalam sebuah list sebagai contextnya ke API dari web Django Kita. Backend API Django akan memproses Register/Login tersebut dan mengembalikkan sebuah response. 
+Dari response yang diberikan di flutter kita akan menentukan akan apa.
 
 ### Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial).
+Honestly Mate, Gw Copas dari Repo Tutorial dan Modifikasi Sesuai Proyek App ini ¯\_(ツ)_/¯

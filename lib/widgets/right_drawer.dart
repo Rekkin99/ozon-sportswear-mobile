@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ozon_sportwears/screens/menu.dart';
+import 'package:ozon_sportwears/screens/product_entry_list.dart';
+import 'package:ozon_sportwears/screens/product_my_entry_list.dart';
 import 'package:ozon_sportwears/screens/product_form.dart';
 
 class RightDrawer extends StatelessWidget {
@@ -62,7 +64,10 @@ class RightDrawer extends StatelessWidget {
             iconColor: Colors.white,
             // Bagian redirection ke NewsFormPage
             onTap: () {
-              // TODO
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ProductListPage()),
+              );
             },
           ),
           ListTile(
@@ -70,9 +75,11 @@ class RightDrawer extends StatelessWidget {
             title: const Text('My Products'),
             textColor: Colors.white,
             iconColor: Colors.white,
-            // Bagian redirection ke NewsFormPage
             onTap: () {
-              // TODO
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const MyProductListPage()),
+              );
             },
           ),
           ListTile(
@@ -80,13 +87,25 @@ class RightDrawer extends StatelessWidget {
             title: const Text('Add Products'),
             textColor: Colors.white,
             iconColor: Colors.white,
-            // Bagian redirection ke NewsFormPage
             onTap: () {
               Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) => ProductFormPage(),
               ));
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.logout_outlined),
+            title: const Text('Logout'),
+            textColor: Colors.red[900],
+            iconColor: Colors.red[900],
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ProductFormPage(),
+                  ));
             },
           ),
         ],

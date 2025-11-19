@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ozon_sportwears/screens/product_form.dart';
+import 'package:ozon_sportwears/screens/product_entry_list.dart';
+import 'package:ozon_sportwears/screens/product_my_entry_list.dart';
 
 // Item Home Page
 class ItemHomePage {
@@ -41,9 +43,15 @@ class ItemCard extends StatelessWidget{
                   builder: (context) => ProductFormPage(),
                 ));
           } else if (item.name == "All Products"){
-
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const ProductListPage()),
+            );
           } else if (item.name == "My Products"){
-
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const MyProductListPage()),
+            );
           }
         },
 

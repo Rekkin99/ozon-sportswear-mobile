@@ -33,7 +33,7 @@ class ProductCard extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(6),
                   child: Image.network(
-                    'http://farrell-bagoes-ozonsportswear.pbp.cs.ui.ac.id/proxy-image/?url=${Uri.encodeComponent(product.thumbnail ?? '')}',
+                    'https://farrell-bagoes-ozonsportswear.pbp.cs.ui.ac.id/proxy-image/?url=${Uri.encodeComponent(product.thumbnail ?? '')}',
                     height: 150,
                     width: double.infinity,
                     fit: BoxFit.cover,

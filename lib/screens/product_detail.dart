@@ -21,7 +21,7 @@ class ProductDetailPage extends StatelessWidget {
             // Thumbnail image
             if (product.thumbnail!.isNotEmpty)
               Image.network(
-                'http:farrell-bagoes-ozonsportswear.pbp.cs.ui.ac.id/proxy-image/?url=${Uri.encodeComponent(product.thumbnail ?? '')}',
+                'https:farrell-bagoes-ozonsportswear.pbp.cs.ui.ac.id/proxy-image/?url=${Uri.encodeComponent(product.thumbnail ?? '')}',
                 width: double.infinity,
                 height: 250,
                 fit: BoxFit.cover,

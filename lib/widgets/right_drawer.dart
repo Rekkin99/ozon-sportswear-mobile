@@ -3,12 +3,16 @@ import 'package:ozon_sportwears/screens/menu.dart';
 import 'package:ozon_sportwears/screens/product_entry_list.dart';
 import 'package:ozon_sportwears/screens/product_my_entry_list.dart';
 import 'package:ozon_sportwears/screens/product_form.dart';
+import 'package:ozon_sportwears/screens/login.dart';
+import 'package:provider/provider.dart';
+import 'package:pbp_django_auth/pbp_django_auth.dart';
 
 class RightDrawer extends StatelessWidget {
   const RightDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final request = context.watch<CookieRequest>();
     return Drawer(
       backgroundColor: Theme.of(context).colorScheme.secondary,
       child: ListView(
@@ -100,12 +104,28 @@ class RightDrawer extends StatelessWidget {
             title: const Text('Logout'),
             textColor: Colors.red[900],
             iconColor: Colors.red[900],
-            onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ProductFormPage(),
+            onTap:  ()  async{
+              final response = await request.logout(
+                  "https://farrell-bagoes-footballnews.pbp.cs.ui.ac.id/auth/logout/");
+              String message = response["message"];
+              if (context.mounted) {
+                if (response['status']) {
+                  String uname = response["username"];
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    content: Text("$message See you again, $uname."),
                   ));
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => const LoginPage()),
+                  );
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(message),
+                    ),
+                  );
+                }
+              }
             },
           ),
         ],
